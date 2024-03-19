@@ -1,0 +1,72 @@
+﻿@using DAL.Entities
+@model List<Sepet>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="row justify-content-center">
+
+                @Html.Partial("~/Views/Partials/_SolMenu.cshtml")
+                <div class="col-md-8">
+
+                    </div>
+
+                    <div class="product-content-right">
+                        <div class="woocommerce">
+                            <form method="post" action="#">
+                                <table cellspacing="0" class="shop_table cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-remove">&nbsp;</th>
+                                            <th class="product-name">KİTAP</th>
+                                            <th class="product-price">FİYAT</th>
+                                            <th class="product-quantity">ADET</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <div>
+                                            <h3>Toplam Fiyat: @ViewBag.ToplamFiyat</h3>
+                                        </div>
+
+                                        @foreach (var item in Model)
+                                        {
+                            <tr class="cart_item">
+                                <td class="product-remove">
+                                    <a title="Remove this item" class="remove" href="@Url.Action("Sil","Sepet", new { id = item.Id})">×</a>
+                                </td>
+
+                                <td class="product-name">
+                                    <a href="single-product.html">@item.Olta.Baslik</a>
+                                </td>   
+
+                                <td class="product-price">
+                                    <span class="amount">@item.Olta.Fiyat</span>
+                                </td>
+
+
+                                <td class="product-quantity">
+                                    @item.Adet
+                                </td>
+
+                            </tr>
+}
+                                    </tbody>
+                                </table>
+                                <input type="submit" value="Sepeti Onayla">
+
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+@section script{
+
+}
