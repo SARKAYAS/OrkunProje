@@ -15,6 +15,10 @@ namespace OrkunProje.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.ToplamFiyat = Session["ToplamFiyat"];
+            ViewBag.ToplamAdet = Session["ToplamAdet"];
+            //ViewBag.ToplamFiyat = TempData["ToplamFiyat"];
+            //ViewBag.ToplamAdet = TempData["ToplamAdet"];
             return View();
         }
 

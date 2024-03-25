@@ -46,7 +46,7 @@
                             <div class="product-inner">
                                 <h2 class="product-name">@Model.Baslik</h2>
                                 <div class="product-inner-price">
-                                    <ins>$@Model.Fiyat</ins> <del>$@(Model.Fiyat * 110 / 100)</del>
+                                    <ins>$@Model.Fiyat</ins> <del>₺@(Model.Fiyat * 110 / 100)</del>
                                 </div>
 
                                 <form action="" class="cart">
@@ -69,11 +69,11 @@
                                             @if (Model.Ozellikler.Count > 0)
                                             {
                                                 var ozellik = Model.Ozellikler.First();
-                                        <ul>
-                                            <li><strong>Olta Tipi :</strong> @(ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Dram ? "Dram" : (ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Siyasi ? "Siyasi" : (ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Psikoloji ? "Psikoloji" : (ozellik.OltaTipi.Value == OltaTipi.Romantik ? "Romantik" : "")) : "")</li>
+                                                <ul>
+                                                    <li><strong>Olta Tipi :</strong> @(ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Dram ? "Dram" : (ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Siyasi ? "Siyasi" : (ozellik.OltaTipi.HasValue ? (ozellik.OltaTipi.Value == OltaTipi.Psikoloji ? "Psikoloji" : (ozellik.OltaTipi.Value == OltaTipi.Romantik ? "Romantik" : "")) : "")</li>
 
-                                            <li><strong>Yapım Yılı :</strong> @(ozellik.YapimYili.HasValue ? ozellik.YapimYili.Value : 2000)</li>
-                                        </ul>
+                                                    <li><strong>Yapım Yılı :</strong> @(ozellik.YapimYili.HasValue ? ozellik.YapimYili.Value : 2000)</li>
+                                                </ul>
                                             }
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="profile">

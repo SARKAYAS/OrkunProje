@@ -11,6 +11,8 @@ namespace OrkunProje.Controllers
         // GET: Error
         public ActionResult Index()
         {
+
+
             return View();
         }
     }

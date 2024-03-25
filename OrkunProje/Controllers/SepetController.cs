@@ -26,9 +26,13 @@ namespace OrkunProje.Controllers
                 return RedirectToAction("Giris", "Hesap"); // Örnek bir giriş sayfası adı ve controller adı
             }
 
+            decimal toplamFiyat = 0;
+            int toplamAdet = 0; // Toplam adet sayısı için değişken oluşturuldu
+
             // Sepetteki tüm ürünleri al
             var sepetler = GetWhere<Sepet>(s => s.KullaniciId == SessionKontrol.Kontrol.Id);
-            decimal toplamFiyat = 0;
+   
+
 
             // Toplam fiyatı hesaplamak için bir değişken oluştur
 
@@ -37,10 +41,19 @@ namespace OrkunProje.Controllers
             {
                 // Ürün fiyatını al ve adet ile çarp, toplam fiyata ekle
                 toplamFiyat += sepet.Olta.Fiyat * sepet.Adet;
+                toplamAdet += sepet.Adet;
+
             }
 
             // View'a toplam fiyatı ve sepeti gönder
             ViewBag.ToplamFiyat = toplamFiyat;
+            ViewBag.ToplamAdet = toplamAdet;
+
+            Session["ToplamFiyat"] = toplamFiyat;
+            Session["ToplamAdet"] = toplamAdet;
+
+            //TempData["ToplamFiyat"] = toplamFiyat;
+            //TempData["ToplamAdet"] = toplamAdet;
 
             return View(sepetler);
         }
